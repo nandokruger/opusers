@@ -1,5 +1,10 @@
 # op-test
 
+## Config variables
+```
+create .env.local file in root. Use file .env.local.exemple as exemple! :)
+```
+
 ## Project setup
 ```
 npm install
