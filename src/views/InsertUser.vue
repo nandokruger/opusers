@@ -2,7 +2,6 @@
   <b-container class="bv-example-row">
     <b-row class="vh-70" align-v="center">
       <b-col>
-        <b-link to="home">Home</b-link>
         <InsertUser />
       </b-col>
     </b-row>

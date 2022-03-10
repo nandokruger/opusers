@@ -4,7 +4,12 @@
       <b-col>
         <h2>Adicionar Usuário</h2>
         <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-          <b-form-group id="input-group-1" label="Email:" label-for="input-1">
+          <b-form-group
+            id="input-group-1"
+            label="Email:"
+            label-for="input-1"
+            class="mb-2"
+          >
             <b-form-input
               id="input-1"
               v-model="form.email"
@@ -14,7 +19,12 @@
             ></b-form-input>
           </b-form-group>
 
-          <b-form-group id="input-group-2" label="Nome:" label-for="input-2">
+          <b-form-group
+            id="input-group-2"
+            label="Nome:"
+            label-for="input-2"
+            class="mb-2"
+          >
             <b-form-input
               id="input-2"
               v-model="form.name"
@@ -23,16 +33,27 @@
             ></b-form-input>
           </b-form-group>
 
-          <b-form-group id="input-group-2" label="Senha:" label-for="input-2">
+          <b-form-group
+            id="input-group-2"
+            label="Senha:"
+            label-for="input-2"
+            class="mb-2"
+          >
             <b-form-input
               id="input-2"
+              type="password"
               v-model="form.password"
               placeholder="Senha"
               required
             ></b-form-input>
           </b-form-group>
 
-          <b-form-group id="input-group-3" label="Tipo:" label-for="input-3">
+          <b-form-group
+            id="input-group-3"
+            label="Tipo:"
+            label-for="input-3"
+            class="mb-2"
+          >
             <b-form-select
               id="input-3"
               v-model="form.type"
@@ -53,7 +74,7 @@
           <b-button type="submit" variant="primary" class="my-5"
             >Adicionar</b-button
           >
-          <b-button to="/" type="reset" class="my-3 mx-3">Cancelar</b-button>
+          <b-button type="reset" class="my-3 mx-3">Cancelar</b-button>
         </b-form>
       </b-col>
     </b-row>
@@ -101,7 +122,6 @@ export default {
             payload
           )
           this.$store.dispatch('saveUser', payload)
-          this.$router.push('/')
         })
         .catch((error) => {
           const errorCode = error.code
@@ -119,6 +139,7 @@ export default {
       this.$nextTick(() => {
         this.show = true
       })
+      this.$router.push({ name: 'home' })
     }
   }
 }

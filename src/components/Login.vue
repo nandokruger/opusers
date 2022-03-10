@@ -27,8 +27,11 @@
       </b-form>
     </b-card>
 
-    <b-card class="mt-3" header="Free Access User">
-      <pre class="m-0">{{ guestUser }}</pre>
+    <b-card
+      class="mt-3"
+      header="Por favor adicione um usuario manualmente em Authentication Users (Firebase)"
+    >
+      :)
     </b-card>
   </div>
 </template>
@@ -59,10 +62,11 @@ export default {
     doLogin() {
       const { email, password } = this.form
       const auth = getAuth()
+      console.log('auth', auth)
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-          const user = userCredential.user
-          localStorage.setItem('opuser', user.uid)
+          localStorage.setItem('opuser', userCredential.user.uid)
+          this.$router.push({ name: 'home' })
         })
         .catch((error) => {
           const errorCode = error.code
